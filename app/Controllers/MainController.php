@@ -3,29 +3,37 @@
 namespace App\Controllers;
 
 use App\Controllers\CoreController;
+use App\Models\Movie;
+use App\Models\Movie_actors;
+use App\Models\People;
+use App\Models\CoreModel;
 
 class MainController extends CoreController {
 
-    /**
-     * Méthode qui se charge d'afficher la page d'accueil
-     *
-     * @return void
-     */
     public function homeAction()
     {
         $this->show('home');
     }
 
-    /**
-     * Méthode qui se charge d'afficher la page de résultats de recherche
-     *
-     * @return void
-     */
-    public function searchAction()
+    public function searchAction($viewData = [])
     {
-        $this->show('result');
+        $viewData['searchMovies'] = Movie::searchByTitle();
+        $this->show('result', $viewData);
     }
 
-
-
+    public function movieAction($viewData = [])
+    {
+        $movie = Movie::find($viewData['id']);
+        $director = $movie->getDirector();
+        $composer = $movie->getComposer();
+        $actors = $movie->getActors();
+        
+        $viewData = [
+            'movie' => $movie,
+            'director' => $director,
+            'composer' => $composer,
+            'actors' => $actors
+        ];
+        $this->show('movie', $viewData);
+    }
 }

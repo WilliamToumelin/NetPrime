@@ -41,6 +41,16 @@ $router->map(
     'search'
 );
 
+$router->map(
+    'GET',
+    '/movie/[i:id]?',
+    [
+        'controller' => 'MainController',
+        'method' => 'movieAction'
+    ],
+    'movie'
+);
+
 
 // La méthode match permet à AltoRouter de savoir si la page demandée existe dans la liste des routes
 // $match contient un tableau avec les informations de la route actuelle (controller, méthode, nom, etc)
