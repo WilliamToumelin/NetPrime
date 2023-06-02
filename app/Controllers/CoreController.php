@@ -2,12 +2,6 @@
 
 namespace App\Controllers;
 
-use App\Controllers\MainController;
-use App\Models\Movie;
-use App\Models\Movie_actors;
-use App\Models\People;
-use App\Models\CoreModel;
-
 // Cette classe sert de base aux autres controllers. Tous les controllers de ce projet étendent cette classe afin d'hériter de ses méthodes/propriétés.
 class CoreController {
 

@@ -9,21 +9,14 @@ use PDO;
 
 class Movie extends CoreModel
 {
-    protected $id;
-    protected $release_date;
-    protected $title;
-    protected $synopsis;
-    protected $rating;
-    protected $poster_url;
-    protected $background_url;
-    protected $director_id;
-    protected $composer_id;
-    protected $director_name;
-    protected $director_picture;
-    protected $composer_name;
-    protected $composer_picture;
-    protected $name;
-    protected $picture_url;
+    private $release_date;
+    private $title;
+    private $synopsis;
+    private $rating;
+    private $poster_url;
+    private $background_url;
+    private $director_id;
+    private $composer_id;
 
     public function findAll() 
     {
@@ -265,123 +258,4 @@ class Movie extends CoreModel
         return $this;
     }
 
-    /**
-     * Get the value of director_name
-     */ 
-    public function getDirector_name()
-    {
-        return $this->director_name;
-    }
-
-    /**
-     * Set the value of director_name
-     *
-     * @return  self
-     */ 
-    public function setDirector_name($director_name)
-    {
-        $this->director_name = $director_name;
-
-        return $this;
-    }
-
-    /**
-     * Get the value of director_picture
-     */ 
-    public function getDirector_picture()
-    {
-        return $this->director_picture;
-    }
-
-    /**
-     * Set the value of director_picture
-     *
-     * @return  self
-     */ 
-    public function setDirector_picture($director_picture)
-    {
-        $this->director_picture = $director_picture;
-
-        return $this;
-    }
-
-    /**
-     * Get the value of composer_name
-     */ 
-    public function getComposer_name()
-    {
-        return $this->composer_name;
-    }
-
-    /**
-     * Set the value of composer_name
-     *
-     * @return  self
-     */ 
-    public function setComposer_name($composer_name)
-    {
-        $this->composer_name = $composer_name;
-
-        return $this;
-    }
-
-    /**
-     * Get the value of composer_picture
-     */ 
-    public function getComposer_picture()
-    {
-        return $this->composer_picture;
-    }
-
-    /**
-     * Set the value of composer_picture
-     *
-     * @return  self
-     */ 
-    public function setComposer_picture($composer_picture)
-    {
-        $this->composer_picture = $composer_picture;
-
-        return $this;
-    }
-
-    /**
-     * Get the value of name
-     */ 
-    public function getName()
-    {
-        return $this->name;
-    }
-
-    /**
-     * Set the value of name
-     *
-     * @return  self
-     */ 
-    public function setName($name)
-    {
-        $this->name = $name;
-
-        return $this;
-    }
-
-    /**
-     * Get the value of picture_url
-     */ 
-    public function getPicture_url()
-    {
-        return $this->picture_url;
-    }
-
-    /**
-     * Set the value of picture_url
-     *
-     * @return  self
-     */ 
-    public function setPicture_url($picture_url)
-    {
-        $this->picture_url = $picture_url;
-
-        return $this;
-    }
 }

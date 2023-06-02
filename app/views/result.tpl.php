@@ -1,5 +1,8 @@
-
-<h1 class="result-title">Résultats de la recherche : <span><?= $_GET['search'] ?></span></h1>
+<?php
+    // <?= $_GET['search'] ?>
+?>
+<!-- Afficher un titre différents selon que l'on recherche par titre ou par People -->
+<h1 class="result-title">Résultats de la recherche : <span></span></h1>
 
 <section class="results">
     <?php foreach ($searchMovies as $oneMovie) : ?>

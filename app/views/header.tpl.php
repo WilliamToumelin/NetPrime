@@ -1,3 +1,10 @@
+<?php
+    if($viewName == 'movie') {
+        $backUrl = 'background-image: var(--gradient) ,url(https://image.tmdb.org/t/p/original//' . $movie->getBackground_url() . ')';
+    }
+?>
+
+<!-- (CONDITION) ? RETOUR_SI_TRUE : RETOUR_SI_FALSE -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,7 +17,7 @@
     <link rel="stylesheet" href="<?= $absoluteUrl ?>/css/fontawesome/css/solid.css">
     <link rel="stylesheet" href="<?= $absoluteUrl ?>/css/style.css">
 </head>
-<body class="<?= $viewName ?>" style="" >
+<body class="<?= $viewName ?>" style="<?= $viewName == 'movie' ? $backUrl : '' ; ?>" >
     <header class="classic-header">
         <a href="<?= $router->generate('home') ?>">
             <p class="logo">NetPrime <span>+</span></p>

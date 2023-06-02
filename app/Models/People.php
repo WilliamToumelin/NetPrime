@@ -4,38 +4,62 @@ namespace App\Models;
 
 use App\Models\CoreModel;
 use App\Utils\Database;
-
 use PDO;
 
 class People extends CoreModel
-{   
-    protected $id;
-    protected $name;
-    protected $picture_url; 
-    
-    /**
-     * Get the value of id
-     */ 
-    public function getId()
+{
+    private $name;
+    private $picture_url;
+
+    public static function find($id)
     {
-        return $this->id;
+        $sql = 'SELECT * FROM `people` WHERE id = ' . $id;
+		$pdo = Database::getPDO();
+		$pdoStatement = $pdo->query($sql);
+		$people = $pdoStatement->fetchObject('App\Models\People');
+        return $people;
     }
     
-    /**
-     * Set the value of id
-     *
-     * @return  self
-     */ 
-    public function setId($id)
+    public function moviesPlayedIn()
     {
-        $this->id = $id;
+        $sql = "
+            SELECT DISTINCT movies.*
+            FROM `movies` 
+            INNER JOIN `movie_actors` ON `movies`.`id` = `movie_id`
+            WHERE actor_id = $this->id";
+        $pdo = Database::getPDO();
+        $pdoStatement = $pdo->query($sql);
+        $resultSearch = $pdoStatement->fetchAll(PDO::FETCH_CLASS, 'App\Models\Movie');
+        return $resultSearch;
+    }
 
-        return $this;
+    public function moviesDirected()
+    {
+        $sql = "
+            SELECT *
+            FROM `movies`
+            WHERE `director_id`  = $this->id";
+        $pdo = Database::getPDO();
+        $pdoStatement = $pdo->query($sql);
+        $resultSearch = $pdoStatement->fetchAll(PDO::FETCH_CLASS, 'App\Models\Movie');
+        return $resultSearch;
+    }
+
+    public function moviesComposed()
+    {
+        $sql = "
+            SELECT *
+            FROM `movies`
+            WHERE `composer_id` = $this->id";
+        $pdo = Database::getPDO();
+        $pdoStatement = $pdo->query($sql);
+        $resultSearch = $pdoStatement->fetchAll(PDO::FETCH_CLASS, 'App\Models\Movie');
+        return $resultSearch;
     }
 
     /**
      * Get the value of name
-     */ 
+     */
     public function getName()
     {
         return $this->name;
@@ -45,7 +69,7 @@ class People extends CoreModel
      * Set the value of name
      *
      * @return  self
-     */ 
+     */
     public function setName($name)
     {
         $this->name = $name;
@@ -55,7 +79,7 @@ class People extends CoreModel
 
     /**
      * Get the value of picture_url
-     */ 
+     */
     public function getPicture_url()
     {
         return $this->picture_url;
@@ -65,7 +89,7 @@ class People extends CoreModel
      * Set the value of picture_url
      *
      * @return  self
-     */ 
+     */
     public function setPicture_url($picture_url)
     {
         $this->picture_url = $picture_url;

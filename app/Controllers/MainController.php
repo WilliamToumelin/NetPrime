@@ -4,9 +4,7 @@ namespace App\Controllers;
 
 use App\Controllers\CoreController;
 use App\Models\Movie;
-use App\Models\Movie_actors;
 use App\Models\People;
-use App\Models\CoreModel;
 
 class MainController extends CoreController {
 
@@ -17,7 +15,28 @@ class MainController extends CoreController {
 
     public function searchAction($viewData = [])
     {
-        $viewData['searchMovies'] = Movie::searchByTitle();
+        if (isset($_GET['search'])){
+            $movies = Movie::searchByTitle();
+        } elseif ($id = $_GET['directorId'] ?? false){
+
+            $director = People::find($id);
+            $movies = $director->moviesDirected();
+            $viewData['director'] = $director;
+
+        } elseif ($id = $_GET['composerId'] ?? false){
+
+            $composer = People::find($id);
+            $movies = $composer->moviesComposed();
+            $viewData['composer'] = $composer;
+
+        } elseif ($id = $_GET['actorId'] ?? false){
+
+            $actor = People::find($id);
+            $movies = $actor->moviesPlayedIn();
+            $viewData['actor'] = $actor;
+        }
+
+        $viewData['searchMovies'] = $movies;
         $this->show('result', $viewData);
     }
 

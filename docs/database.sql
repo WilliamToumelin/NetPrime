@@ -2443,7 +2443,7 @@ INSERT INTO `people` (`id`, `name`, `picture_url`) VALUES
 (1310760,	'Ki Hong Lee',	'/96zkB3e07LB1hw2segekZS1PlQb.jpg'),
 (1313559,	'Ray Fisher',	'/p87MNscHga8S2SbmATimP143Af9.jpg'),
 (1313633,	'Harrison Thomas',	'/70oE9jaRLgkReir0SpIX9me7gjy.jpg'),
-(1319218,	'Makoto Furukawa',	'/ayE3vqqNYt4wBQIvoEVka4oFDw6.jpg'
+(1319218,	'Makoto Furukawa',	'/ayE3vqqNYt4wBQIvoEVka4oFDw6.jpg'),
 (234352,	'Margot Robbie',	'/euDPyqLnuwaWMHajcU3oZ9uZezR.jpg'),
 (234364,	'Miki Imai',	NULL),
 (234479,	'Dakota Goyo',	'/xHfxZDILa8JRZu5OoaXKiDa781o.jpg'),

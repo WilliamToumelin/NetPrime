@@ -1,5 +1,5 @@
 <?php
-    dump($viewData);
+dump($viewData);
 ?>
 <div class="movie-wrapper">
 
@@ -19,12 +19,16 @@
         <div class="crew">
             <div class="real">
                 <h2><i class="fa-solid fa-film"></i> Réalisateur</h2>
-                <img src="https://image.tmdb.org/t/p/original/<?=$director->getPicture_url() ?>" alt="<?= $director->getName() ?>">
+                <a href="<?= $router->generate('search') ?>?directorId=<?=$director->getId()?>">
+                    <img src="https://image.tmdb.org/t/p/original/<?= $director->getPicture_url() ?>" alt="<?= $director->getName() ?>">
+                </a>
                 <h3><?= $director->getName() ?></h3>
             </div>
             <div class="composer">
                 <h2><i class="fa-solid fa-music"></i> Compositeur</h2>
-                <img src="https://image.tmdb.org/t/p/original/<?=$composer->getPicture_url() ?>" alt="<?= $composer->getName() ?>">
+                <a href="<?= $router->generate('search') ?>?composerId=<?=$composer->getId()?>">
+                    <img src="https://image.tmdb.org/t/p/original/<?= $composer->getPicture_url() ?>" alt="<?= $composer->getName() ?>">
+                </a>
                 <h3><?= $composer->getName() ?></h3>
             </div>
         </div>
@@ -33,8 +37,10 @@
             <ul>
                 <?php foreach ($actors as $actor) : ?>
                     <li>
-                        <img src="https://image.tmdb.org/t/p/original/<?= $actor->getPicture_url()?>" alt="<?= $actor->getName()?>">
-                        <h3><?= $actor->getName()?></h3>
+                        <a href="<?= $router->generate('search') ?>?actorId=<?=$actor->getId()?>">
+                            <img src="https://image.tmdb.org/t/p/original/<?= $actor->getPicture_url() ?>" alt="<?= $actor->getName() ?>">
+                        </a>
+                        <h3><?= $actor->getName() ?></h3>
                     </li>
                 <?php endforeach ?>
             </ul>

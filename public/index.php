@@ -51,7 +51,6 @@ $router->map(
     'movie'
 );
 
-
 // La méthode match permet à AltoRouter de savoir si la page demandée existe dans la liste des routes
 // $match contient un tableau avec les informations de la route actuelle (controller, méthode, nom, etc)
 // Si la route actuelle n'existe pas, $match contient false
@@ -86,3 +85,4 @@ if($match !== false) {
 } else {
     echo "Erreur 404 - la page n'existe pas";
 }
+
