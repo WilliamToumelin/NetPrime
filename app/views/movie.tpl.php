@@ -1,6 +1,4 @@
-<?php
-dump($viewData);
-?>
+
 <div class="movie-wrapper">
 
     <section class="poster">

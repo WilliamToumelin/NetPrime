@@ -1,6 +1,6 @@
 <?php
     // <?= $_GET['search'] ?>
-?>
+
 <!-- Afficher un titre différents selon que l'on recherche par titre ou par People -->
 <h1 class="result-title">Résultats de la recherche : <span></span></h1>
 
